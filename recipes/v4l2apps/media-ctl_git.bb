@@ -3,9 +3,10 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING.GPL;md5=751419260aa954499f7abaabaa882bbe"
 
 SRC_URI = "git://git.ideasonboard.org/media-ctl.git;protocol=git"
-SRCREV = "2333126b3b5178e4670f01bfeaeec5948abb5546"
+SRCREV = "46bec667b675573cf1ce698c68112e3dbd31930e"
 
 PV = "0.0.1"
+PR = "r1"
 S = "${WORKDIR}/git"
 
 inherit autotools
