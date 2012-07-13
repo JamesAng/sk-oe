@@ -6,7 +6,7 @@ require xorg-xserver-common.inc
 DESCRIPTION = "the X.Org X server"
 DEPENDS += "pixman libpciaccess openssl dri2proto glproto xorg-minimal-fonts font-util-native"
 PE = "2"
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 SRC_URI += " \
             file://dolt-fix.patch \
@@ -19,6 +19,7 @@ SRC_URI[archive.sha256sum] = "ad11047ebba58f2e37b03c70c986db3ea0cc0f1a19d2d36127
 
 do_install_prepend() {
         mkdir -p ${D}/${libdir}/X11/fonts
+	sed -i -e 's:MatchIsTouchscreen "on":MatchIsTouchscreen "on"\n\tOption "InvertY" "true":' config/10-evdev.conf
 }
 
 # The NVidia driver requires Xinerama support in the X server. Ion uses it.
